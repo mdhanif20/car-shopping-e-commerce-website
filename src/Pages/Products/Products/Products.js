@@ -5,7 +5,7 @@ import "./Products.css";
 
 const Products = () => {
     const [products,setProducts] = useState([]);
-    axios.get("http://localhost:5000/products")
+    axios.get("https://guarded-ocean-51430.herokuapp.com/products")
     .then(res=>{
         setProducts(res.data);
     })
