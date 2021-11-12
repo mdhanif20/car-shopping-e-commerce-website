@@ -1,9 +1,18 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import "./Product.css";
+import useFirebase from './../../Firebase/useFirebase';
+
+
 
 const Product = (props) => {
     // console.log({product});
-    const {name,img,description,details,price,weight,availableColor} = props.product;
+    const {name,img,description,details,price,weight,availableColor,_id} = props.product;
+    const {users}= useFirebase();
+    /* const productId = () =>{
+        const getId = _id;
+        <Orders id={getId}></Orders>
+    } */
     return (
         <div className="ms-md-5 me-md-5 ms-2 me-2">
             <div className="card mb-3">
@@ -18,7 +27,15 @@ const Product = (props) => {
                     <p className="card-text">{details}</p>
                     <h6 className="card-text">Price:{price}</h6>
                     <p className="card-text"><small className="text-muted">AvailAbleColor:{availableColor}</small></p>
-                    <button type="button" className="btn btn-primary">Buy Now</button>
+                    {
+                        users.email?<Link to={`orders/${_id}`}>
+                        <button type="button" className="btn btn-primary">Buy Now</button>
+                        </Link>:
+                        <NavLink to="login">
+                        <button type="button" className="btn btn-primary">Buy Now</button>
+                    </NavLink>
+                    }
+                    
                 </div>
                 </div>
             </div>

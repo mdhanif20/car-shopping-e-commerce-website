@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useHistory} from 'react-router-dom';
 import "./Login.css";
+import useFirebase from './../Firebase/useFirebase';
 
 const Login = () => {
     const [loginData,setLoginData] = useState({});
+    const {singIn} = useFirebase();
+    const {singInUsingGoogle} = useFirebase();
+    /* const location = useLocation();
+    const history = useHistory(); */
     const handleOnChange = e =>{
         const field = e.target.name;
         const value = e.target.value;
@@ -12,12 +17,12 @@ const Login = () => {
         newLoginData[field] = value;
         setLoginData(newLoginData);
     }
-    const handleLoginSubmit = e =>{
-        e.prventDefault();
+    const singInYourAccount = () =>{
+        singIn(loginData.email,loginData.password);
     }
     return (
         <div  id="loginForm" className="m-auto text-start my-5">
-                <Form onSubmit={handleLoginSubmit}>
+                <div>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email"
@@ -33,13 +38,15 @@ const Login = () => {
                         onBlur={handleOnChange}
                         placeholder="Password" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" onClick={singInYourAccount}>
                         Login
                     </Button> <br />
+                    <p>---------or----------</p>
+                    <Button onClick={singInUsingGoogle}>Google Sing In</Button>
                     <NavLink to="register">
                         <Button variant="link">New User?Please Register</Button>
                     </NavLink>
-                </Form>
+                </div>
         </div>
     );
 };

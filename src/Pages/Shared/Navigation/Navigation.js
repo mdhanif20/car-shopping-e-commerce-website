@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import useAuth from './../useAuth';
-import useFirebase from './../useFirebase/useFirebase';
+import useFirebase from './../../Firebase/useFirebase';
+
 
 const Navigation = () => {
-  const {user,logout} = useFirebase();
+  const {users,logOut} = useFirebase();
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -17,12 +17,13 @@ const Navigation = () => {
         <Nav.Link as={Link} to="home">Home</Nav.Link>
         <Nav.Link as={Link} to="allProducts">All Products</Nav.Link>
         {
-          user?.email? 
-          <Button onClick={logout}>Logout</Button>
-          :
+          users?.email? 
+          <Button type="button" className="btn btn-light" onClick={logOut}>Logout</Button>
+          : 
           <Nav.Link as={Link} to="login" href="#home">Login</Nav.Link>
-        }
+          }
         <Nav.Link as={Link} to="register" href="#home">Register</Nav.Link>
+        <Nav.Link as={Link} to="orders" href="#home">Orders</Nav.Link>
         <Nav.Link href="#home">Home</Nav.Link>
         <Nav.Link href="#link">Link</Nav.Link>
         <NavDropdown title="Dropdown" id="basic-nav-dropdown">

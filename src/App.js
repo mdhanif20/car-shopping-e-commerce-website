@@ -12,14 +12,13 @@ import {
 import AllProducts from './Pages/Products/AllProducts/AllProducts';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
-import AuthProvider from './Context/AuthProvider/AuthProvider';
-
+import Orders from './Pages/Orders/Orders';
 
 
 function App() {
   return (
     <div className="App">
-         <AuthProvider>
+         
          <Router>
             <Navigation></Navigation>
             <Switch>
@@ -38,9 +37,11 @@ function App() {
               <Route path="/register">
                 <Register></Register>
               </Route>
+              <Route path="/orders">
+                <Orders></Orders>
+              </Route>
             </Switch>
         </Router>
-         </AuthProvider>
     </div>
   );
 }
