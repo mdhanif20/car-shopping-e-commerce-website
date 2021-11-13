@@ -28,9 +28,9 @@ const Product = (props) => {
                     <h6 className="card-text">Price:{price}</h6>
                     <p className="card-text"><small className="text-muted">AvailAbleColor:{availableColor}</small></p>
                     {
-                        users.email?<Link to={`orders/${_id}`}>
+                        users.email?<NavLink to={`orders/${_id}`}>
                         <button type="button" className="btn btn-primary">Buy Now</button>
-                        </Link>:
+                        </NavLink>:
                         <NavLink to="login">
                         <button type="button" className="btn btn-primary">Buy Now</button>
                     </NavLink>

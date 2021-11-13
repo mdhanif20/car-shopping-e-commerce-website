@@ -23,7 +23,9 @@ const Navigation = () => {
           <Nav.Link as={Link} to="login" href="#home">Login</Nav.Link>
           }
         <Nav.Link as={Link} to="register" href="#home">Register</Nav.Link>
-        <Nav.Link as={Link} to="orders" href="#home">Orders</Nav.Link>
+        <Nav.Link as={Link} to="orders/:id" href="#home">Orders</Nav.Link>
+        <Nav.Link as={Link} to="allOrders" href="#home">All Orders</Nav.Link>
+        <Nav.Link as={Link} to="myorders" href="#home">My Orders</Nav.Link>
         <Nav.Link href="#home">Home</Nav.Link>
         <Nav.Link href="#link">Link</Nav.Link>
         <NavDropdown title="Dropdown" id="basic-nav-dropdown">

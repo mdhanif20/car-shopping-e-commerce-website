@@ -19,6 +19,7 @@ const Login = () => {
     }
     const singInYourAccount = () =>{
         singIn(loginData.email,loginData.password);
+        alert("Login Successfull")
     }
     return (
         <div  id="loginForm" className="m-auto text-start my-5">
