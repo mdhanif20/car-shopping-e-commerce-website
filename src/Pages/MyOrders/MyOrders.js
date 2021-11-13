@@ -6,14 +6,14 @@ import useFirebase from './../Firebase/useFirebase';
 const MyOrders = () => {
     const {users} = useFirebase();
     const [orders,setOrders] = useState([]);
-    axios.get(`http://localhost:5000/order?email=${users.email}`)
+    axios.get(`https://guarded-ocean-51430.herokuapp.com/order?email=${users.email}`)
     
     .then(res =>{
         setOrders(res.data);
     })
     // console.log(orders)
     const deleteOrders = (id) =>{
-        axios.delete(`http://localhost:5000/order/${id}`)
+        axios.delete(`https://guarded-ocean-51430.herokuapp.com/order/${id}`)
         .then(res =>{
             console.log(res)
         })

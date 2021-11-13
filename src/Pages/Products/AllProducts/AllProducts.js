@@ -1,10 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import useFirebase from '../../Firebase/useFirebase';
 // import AllProduct from './../AllProduct/AllProduct';
 
 
 
 const AllProducts = () => {
+    const {users} = useFirebase();
     const [products,setProducts] = useState([]);
     axios.get("https://guarded-ocean-51430.herokuapp.com/products")
     .then(res=>{
@@ -27,7 +30,15 @@ const AllProducts = () => {
                         <p className="card-text">{product.details.slice(0,400)}</p>
                         <h6 className="card-text">Price:{product.price}</h6>
                         <p className="card-text"><small className="text-muted">AvailAbleColor:{product.availableColor}</small></p>
+                        {/* <button type="button" className="btn btn-primary">Buy Now</button> */}
+                        {
+                        users.email?<NavLink to={`orders/${product._id}`}>
                         <button type="button" className="btn btn-primary">Buy Now</button>
+                        </NavLink>:
+                        <NavLink to="login">
+                        <button type="button" className="btn btn-primary">Buy Now</button>
+                    </NavLink>
+                    }
                     </div>
                     </div>
                 </div>

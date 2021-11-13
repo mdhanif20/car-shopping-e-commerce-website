@@ -21,7 +21,7 @@ const Orders = () => {
     const newOrder = {customerName,email, productName,productDescription,price,productImg,productWeight,phone,address};
 
     const placeOrders = () =>{
-        axios.post("http://localhost:5000/order",newOrder)
+        axios.post("https://guarded-ocean-51430.herokuapp.com/order",newOrder)
         .then(res=>{
             console.log(res)
         })
@@ -38,7 +38,7 @@ const Orders = () => {
     }
     // good1234
     //good3@gmail.com
-    axios.get(`http://localhost:5000/products/${id}`)
+    axios.get(`https://guarded-ocean-51430.herokuapp.com/products/${id}`)
         .then(res=>setProduct(res.data));
     return (
         <div>
