@@ -10,7 +10,8 @@ const AllOrders = () => {
         alert("Shipping successful")
         setShipping(true);
     } */
-    axios.get("https://guarded-ocean-51430.herokuapp.com/order")
+    // https://guarded-ocean-51430.herokuapp.com/orders 
+    axios.get("http://localhost:5000/orders")
     .then(res =>setOrders(res.data))
     // console.log(orders);
     return (

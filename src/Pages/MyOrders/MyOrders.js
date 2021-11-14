@@ -6,18 +6,21 @@ import useFirebase from './../Firebase/useFirebase';
 const MyOrders = () => {
     const {users} = useFirebase();
     const [orders,setOrders] = useState([]);
-    axios.get(`https://guarded-ocean-51430.herokuapp.com/order?email=${users.email}`)
-    
-    .then(res =>{
-        setOrders(res.data);
-    })
     // console.log(orders)
     const deleteOrders = (id) =>{
-        axios.delete(`https://guarded-ocean-51430.herokuapp.com/order/${id}`)
-        .then(res =>{
-            console.log(res)
-        })
-    }
+      axios.delete(`https://guarded-ocean-51430.herokuapp.com/order/${id}`)
+      .then(res =>{
+          // console.log(res)
+      })
+  }
+
+    // console.log(users.email);
+    axios.get(`http://localhost:5000/order?email=${users.email}`)
+    .then(res =>{
+        setOrders(res.data);
+        // console.log(res.data)
+    })
+    
     return (
         <div>
             <h2 className="my-5">Your Orders</h2>
@@ -35,7 +38,7 @@ const MyOrders = () => {
                       <h6 className="card-text">Customer Email: {order.customerEmail}</h6>
                       <h6 className="card-text">Order Id: {order._id}</h6>
                       <h6 className="card-text">Product Price: {order.price}</h6>
-                      <Button type="button" onClick={deleteOrders(order._id)} className="btn btn-primary">Delete Orders</Button>
+                      <Button type="button" onClick={()=>deleteOrders(order._id)} className="btn btn-primary">Delete Orders</Button>
                     </div>
                   </div>
                 </div>

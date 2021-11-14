@@ -6,7 +6,7 @@ import useFirebase from './../Firebase/useFirebase';
 
 const Login = () => {
     const [loginData,setLoginData] = useState({});
-    const {singIn} = useFirebase();
+    const {singIn,users} = useFirebase();
     const {singInUsingGoogle} = useFirebase();
     /* const location = useLocation();
     const history = useHistory(); */

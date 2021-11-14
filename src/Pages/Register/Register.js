@@ -4,7 +4,7 @@ import useFirebase from './../Firebase/useFirebase';
 
 
 const Register = () => {
-    const {passwordAuthentication} = useFirebase();
+    const {passwordAuthentication,users} = useFirebase();
     const [email,setEmail] = useState('');
     const [name,setName] = useState('');
     const [password,setPassword] = useState('');
@@ -28,9 +28,12 @@ const Register = () => {
         }
         else{
             passwordAuthentication(email,password,name);
+            if(users.email){
+                alert("Register Successfull")
+            }
         }
     }
-   
+  
     
     return (
         <div  id="loginForm" className="m-auto text-start my-5">

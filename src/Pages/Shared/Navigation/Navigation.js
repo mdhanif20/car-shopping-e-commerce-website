@@ -10,31 +10,46 @@ const Navigation = () => {
         <div>
             <Navbar bg="light" expand="lg">
   <Container>
-    <Navbar.Brand href="#home">Car Shopping</Navbar.Brand>
+    <Navbar.Brand >Car Shopping</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ms-auto">
         <Nav.Link as={Link} to="home">Home</Nav.Link>
         <Nav.Link as={Link} to="allProducts">All Products</Nav.Link>
+   
+      {
+        users?.email && <NavDropdown title="Deshboard" id="basic-nav-dropdown">
+                      <NavDropdown.Item href="#action/3.1">
+                        <Nav.Link as={Link} to="orders/:id" >Orders</Nav.Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.2">
+                        <Nav.Link as={Link} to="myorders" >My Orders</Nav.Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.2">
+                        <Nav.Link as={Link} to="payment" >Payment</Nav.Link>
+                      </NavDropdown.Item>
+                    </NavDropdown>
+      }
+        
+      {
+            (users?.email === "admin@admin.com") && <NavDropdown title="Admin Panel" id="basic-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">
+              <Nav.Link as={Link} to="allOrders" >All Orders</Nav.Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">
+              <Nav.Link as={Link} to="addproduct" >Add Product</Nav.Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+      }
+
+        
         {
           users?.email? 
           <Button type="button" className="btn btn-light" onClick={logOut}>Logout</Button>
           : 
-          <Nav.Link as={Link} to="login" href="#home">Login</Nav.Link>
+          <Nav.Link as={Link} to="login" >Login</Nav.Link>
           }
-        <Nav.Link as={Link} to="register" href="#home">Register</Nav.Link>
-        <Nav.Link as={Link} to="orders/:id" href="#home">Orders</Nav.Link>
-        <Nav.Link as={Link} to="allOrders" href="#home">All Orders</Nav.Link>
-        <Nav.Link as={Link} to="myorders" href="#home">My Orders</Nav.Link>
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Link</Nav.Link>
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-        </NavDropdown>
+        <Nav.Link as={Link} to="register" >Register</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Container>

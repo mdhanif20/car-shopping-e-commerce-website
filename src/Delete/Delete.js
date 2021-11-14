@@ -118,6 +118,8 @@ const products = [
         weight:"24000KG",
         availableColor:"Black,Red,White"
     },
+    
+    
     {   
         id:"13",
         name:"CIVIC",
