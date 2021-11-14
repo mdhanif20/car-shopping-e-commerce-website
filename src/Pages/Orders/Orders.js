@@ -45,8 +45,7 @@ const Orders = () => {
     const addressTaking = e =>{
         setAddress(e.target.value);
     }
-    // good1234
-    //good3@gmail.com
+ 
 
 
     // review taken 
@@ -60,7 +59,7 @@ const Orders = () => {
         setRating(e.target.value);
     }
     const givesReview = () =>{
-            axios.post("http://localhost:5000/reviews",review)
+            axios.post("https://guarded-ocean-51430.herokuapp.com/reviews",review)
             .then(res=>{
                 if(res.data){
                     alert("Reviews Added Successful")

@@ -15,7 +15,7 @@ const MyOrders = () => {
   }
 
     // console.log(users.email);
-    axios.get(`http://localhost:5000/order?email=${users.email}`)
+    axios.get(`https://guarded-ocean-51430.herokuapp.com/order?email=${users.email}`)
     .then(res =>{
         setOrders(res.data);
         // console.log(res.data)

@@ -36,7 +36,7 @@ const AddProduct = () => {
     const addedProduct = () =>{
         const addedProduct = {name,img,description,details,price,weight,availableColor};
         console.log(addedProduct);
-        axios.post("http://localhost:5000/product",addedProduct)
+        axios.post("https://guarded-ocean-51430.herokuapp.com/product",addedProduct)
         .then(res=>{
             // console.log(res)
             if(res.data){

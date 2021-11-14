@@ -5,7 +5,7 @@ import { AiFillStar } from 'react-icons/ai';
 
 const Reviews = () => {
     const [allReview,setAllReview] = useState([]);
-    axios.get("http://localhost:5000/reviews")
+    axios.get("https://guarded-ocean-51430.herokuapp.com/reviews")
     .then(res =>{
         setAllReview(res.data)
     })

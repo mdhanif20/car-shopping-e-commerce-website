@@ -11,7 +11,7 @@ const AllOrders = () => {
         setShipping(true);
     } */
     // https://guarded-ocean-51430.herokuapp.com/orders 
-    axios.get("http://localhost:5000/orders")
+    axios.get("https://guarded-ocean-51430.herokuapp.com/orders")
     .then(res =>setOrders(res.data))
     // console.log(orders);
     return (
