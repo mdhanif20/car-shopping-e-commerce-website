@@ -19,6 +19,7 @@ import {
   Link
 } from "react-router-dom";
 import Payment from './Pages/Payment/Payment';
+import Deshboard from './Pages/Deshboard/Desjboard/Deshboard';
 
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
               </Route>
               <Route path="/allProducts">
                 <AllProducts></AllProducts>
+              </Route>
+              <Route path="/deshboard">
+                <Deshboard></Deshboard>
               </Route>
               <Route path="/orders/allProducts">
                 <AllProducts></AllProducts>

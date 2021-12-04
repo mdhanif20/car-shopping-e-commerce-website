@@ -1,0 +1,22 @@
+
+ h2#deshboard {
+    text-align: start;
+    padding: 10px 30px;
+    padding-left: 9%;
+    box-shadow: -1px 1px 0px 1px grey;
+    margin: 0px;
+    margin-right: 9px;
+}
+h2#deshboard a {
+    text-decoration: none;
+    color: black;
+    font-size: 26px;
+}
+div#deshBoardAll {
+    width: 20%;
+    border-right: 1px solid #b2b1b1;
+    padding: 13px 0px;
+    margin: 10px 0px;
+}
+
+ 

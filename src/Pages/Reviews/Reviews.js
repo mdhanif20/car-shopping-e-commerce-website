@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import "./Reviews.css";
 import { AiFillStar } from 'react-icons/ai';
+import SingleReview from '../SingleReview/SingleReview';
 
 const Reviews = () => {
     const [allReview,setAllReview] = useState([]);
@@ -9,13 +10,13 @@ const Reviews = () => {
     .then(res =>{
         setAllReview(res.data)
     })
-    // console.log(reviews);
     return (
         <div>
             <h2 className="my-3 pt-5">All Reviews</h2>
            <div className="row mx-md-5 mx-2">
            {
-                allReview.map(review=><div key={review._id} className="card-group col-md-4">
+                allReview.map(review=>
+                  <div key={review._id} className="card-group col-md-4">
                 <div className="card">
                   <img src={review.productImg} className="card-img-top" alt="..." id="reviewImg"/>
                   <div className="card-body text-start">
@@ -27,7 +28,7 @@ const Reviews = () => {
                     </p>
                   </div>
                 </div>
-              </div>)
+              </div> )
             } 
            </div>
         </div>
